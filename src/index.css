@@ -109,7 +109,6 @@ main {
 
 /* xs */
 @media (min-width: 575px) {
-
     .meme--image {
         margin: auto;
         display: block;
