@@ -1,4 +1,4 @@
-# 🕹️ Tenzies
+# 😁 Meme Generator
 
 Live: https://meme-generator-five-nu.vercel.app/
 
