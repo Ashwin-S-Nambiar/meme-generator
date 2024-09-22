@@ -2,7 +2,7 @@
 
 Live: https://meme-generator-five-nu.vercel.app/
 
-***Meme Generator app to make your own based on existing meme templates. Try it out in the above link.***
+***Meme Generator app to make your own based on existing meme templates. You can add your own bottom and top texts to the meme template selected. Try it out in the above link.***
 
 ## ⚒️ Built with:
 - HTML 5
