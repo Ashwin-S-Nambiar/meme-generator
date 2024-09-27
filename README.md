@@ -1,6 +1,6 @@
 # 😁 Meme Generator
 
-Live: https://meme-generator-five-nu.vercel.app/
+**Live: https://meme-generator-five-nu.vercel.app/**
 
 ***Meme Generator app to make your own based on existing meme templates. You can add your own bottom and top texts to the meme template selected. Uses [Imgflip API](https://imgflip.com/api) to get the templates. Try it out in the above link.***
 
