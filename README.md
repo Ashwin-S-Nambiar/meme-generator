@@ -20,3 +20,5 @@
 
 ![meme-generator-five-nu vercel app_](https://github.com/user-attachments/assets/1875f72f-58e3-4a63-ac56-0d85589b4419)
 
+## 🧔‍♂️ Author
+**Ashwin S Nambair**
