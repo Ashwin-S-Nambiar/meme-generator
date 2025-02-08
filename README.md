@@ -1,67 +1,110 @@
-# 😁 Meme Generator  
-**Live:** [https://meme-generator-five-nu.vercel.app/](https://meme-generator-five-nu.vercel.app/)  
+# Meme Generator 😁
 
-**Description:**  
-Meme Generator is a fun web app that allows users to create their own memes using existing meme templates. Simply select a template, add custom top and bottom text, and generate your meme instantly! The app fetches meme templates from the [Imgflip API](https://imgflip.com/api). Try it out and create hilarious memes!  
+<div align="center">
 
-## 🎨 Features  
-- **Meme Template Selection:** Choose from a variety of meme templates  
-- **Custom Text Input:** Add your own top and bottom text to personalize memes  
-- **Instant Meme Preview:** See real-time changes while editing your meme  
-- **Responsive Design:** Works smoothly on all devices  
-- **API Integration:** Fetches templates dynamically from the Imgflip API  
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-## 🛠️ Tech Stack  
-- **Frontend:**  
-  - [React](https://reactjs.org/) - A JavaScript library for building UI  
-  - HTML5 - Structuring the web app  
-  - CSS3 - Styling and layout  
-  - JavaScript - Core logic and interactivity  
+A fun and interactive meme generator that allows users to create their own memes by selecting templates and adding custom text using the Imgflip API.
 
-## 🚀 Installation & Running Locally  
-1. **Clone the Repository:**  
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Contributing](#-contributing) • [Screenshots](#-screenshots) • [Live](#-live) • [Author](#-author)
+
+</div>
+
+## 🎨 Features
+
+- 🖼 **Meme Template Selection** - Choose from a wide range of meme templates.
+- ✍ **Custom Text Input** - Add top and bottom text to personalize your meme.
+- ⚡ **Instant Meme Preview** - See real-time updates while editing.
+- 🌍 **API Integration** - Fetches templates dynamically from the Imgflip API.
+- 📱 **Responsive Design** - Optimized for mobile and desktop users.
+
+## 🛠 Tech Stack
+
+### Frontend
+- **[React](https://reactjs.org/)** - UI component development
+- **[Vite](https://vitejs.dev/)** - Fast build tool and development server
+- **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** - Structuring the web app
+- **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)** - Styling and layout
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Core logic and interactivity
+
+### API
+- **[Imgflip API](https://imgflip.com/api)** - Get the meme templates
+
+## 🚀 Installation
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/Ashwin-S-Nambiar/meme-generator.git
    cd meme-generator
    ```
 
-2. **Install Dependencies:**  
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Start the Development Server:**  
+3. **Start the development server**
    ```bash
    npm run dev
    ```
-   **The app will be available at `http://localhost:5173`**  
+   **The application will be accessible at `http://localhost:5173`.**
 
-## 🤝 Contributing  
-Contributions are welcome! If you'd like to enhance the Meme Generator, follow these steps:  
+## 🤝 Contributing
 
-1. Fork the repository  
-2. Create a new feature branch:
+Contributions are welcome! Here's how you can help improve the Color Scheme Generator:
 
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-4. Make your changes and commit them:  
+1. Fork the repository
+2. Create a feature branch:
 
    ```bash
-   git commit -m "Add some feature"
+   git checkout -b feature/amazing-feature
    ```
-5. Push to the branch:  
+
+3. Commit your changes:
 
    ```bash
-   git push origin feature/your-feature-name
+   git commit -m 'Add some amazing feature'
    ```
-6. Open a Pull Request  
 
-## 📸 Screenshots  
+4. Push to the branch:
+
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+
+5. Open a Pull Request
+
+## 📸 Screenshots
+
 <div align="center">
-    <h3>App Interface</h3>
-    <img src="https://github.com/user-attachments/assets/1875f72f-58e3-4a63-ac56-0d85589b4419" alt="Meme Generator Screenshot" />
-</div>  
 
-## 🧑‍💻 Author  
-**[Ashwin S Nambiar](https://ashwin-s-nambiar.is-a.dev/)**  
+### **App Interface**
+![chrome_HHTMSPS6wC](https://github.com/user-attachments/assets/dafb5899-3d6a-41a6-a29b-00cfabebbac7)
+
+### **Adding Custom Text**
+![Meme Generator Screenshot](https://github.com/user-attachments/assets/1875f72f-58e3-4a63-ac56-0d85589b4419)
+
+</div>
+
+## 🌍 Live
+
+<div align="center">
+
+[![Visit](https://img.shields.io/badge/Visit_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://meme-generator-five-nu.vercel.app/)
+
+</div>
+
+## 👤 Author
+
+### Ashwin S Nambiar
+- Portfolio: [ashwin-s-nambiar.is-a.dev](https://ashwin-s-nambiar.is-a.dev/)
+- GitHub: [@Ashwin-S-Nambiar](https://github.com/Ashwin-S-Nambiar)
+
+---
+
+<div align="center">
+Made with ❤️ by Ashwin S Nambiar
+</div>
