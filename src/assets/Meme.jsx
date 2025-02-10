@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import html2canvas from "html2canvas";
 import fallBackImg from "/fallback-meme.jpg";
 
 export default function Meme() {
@@ -28,7 +27,7 @@ export default function Meme() {
     async function getMemeImage() {
         setIsLoading(true);
         try {
-            await new Promise((resolve) => setTimeout(resolve, 500)); // 500ms delay
+            await new Promise((resolve) => setTimeout(resolve, 500));
     
             const randomNumber = Math.floor(Math.random() * allMemes.length);
             const url = allMemes[randomNumber].url;
