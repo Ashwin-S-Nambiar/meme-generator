@@ -7,7 +7,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-A fun and interactive meme generator that allows users to create their own memes by selecting templates and adding custom text using the Imgflip API.
+A fun and interactive meme generator that allows users to create their own memes by selecting templates, adding custom text and share the memes made.
 
 [Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Contributing](#-contributing) • [Screenshots](#-screenshots) • [Live](#-live) • [Author](#-author)
 
@@ -20,6 +20,8 @@ A fun and interactive meme generator that allows users to create their own memes
 - ⚡ **Instant Meme Preview** - See real-time updates while editing.
 - 🌍 **API Integration** - Fetches templates dynamically from the Imgflip API.
 - 📱 **Responsive Design** - Optimized for mobile and desktop users.
+- 📤 **Share Memes** - Share your generated meme with a single click via social media or messaging platforms.
+- 💾 **Download Memes** - Download the generated meme directly to your device.
 
 ## 🛠 Tech Stack
 
