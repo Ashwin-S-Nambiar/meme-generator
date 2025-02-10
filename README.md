@@ -82,10 +82,20 @@ Contributions are welcome! Here's how you can help improve the Color Scheme Gene
 <div align="center">
 
 ### **App Interface**
-![chrome_HHTMSPS6wC](https://github.com/user-attachments/assets/dafb5899-3d6a-41a6-a29b-00cfabebbac7)
+![LandingPage](./public/screenshots/LandinPage.png)
 
-### **Adding Custom Text**
-![Meme Generator Screenshot](https://github.com/user-attachments/assets/1875f72f-58e3-4a63-ac56-0d85589b4419)
+### **App Full Interface**
+![FullPage](./public/screenshots/LandingPageFull.png)
+
+### **Generate New Meme Template**
+![MemeTemplate](./public/screenshots/NewTemplate.png)
+
+### **Share Meme**
+![ShareMeme](./public/screenshots/ShareMeme.png)
+
+### **Downloaded Meme**
+![DownloadMeme](./public/screenshots/DownloadedMeme.png)
+
 
 </div>
 
