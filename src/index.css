@@ -744,7 +744,7 @@ main {
 }
 
 .plus-btn {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1.5rem;
     background: var(--secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -775,8 +775,8 @@ main {
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -65%;
+    right: 32%;
 }
 
 .remove-btn:hover {

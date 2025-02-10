@@ -217,13 +217,14 @@ export default function Meme() {
             value={currentText}
             onChange={handleTextChange}
           />
-          {/* Plus/Confirm button styled via vanilla CSS */}
+          {/* Plus/Confirm button */}
           <button 
-          title="Add text to meme"
+            title="Add text to meme"
             className="plus-btn"
             onClick={handleAddText}
+            disabled={currentText.trim() === ""}
           >
-            {editingTextIndex !== null ? "✓" : "+"}
+            {currentText.trim() === "" ? "⃠" : editingTextIndex !== null ? "✓" : "+"}
           </button>
         </div>
         <div className="button-group">
@@ -315,29 +316,30 @@ export default function Meme() {
                 }
               }}
             >
-              <h2 
+                <h2 
                 className="meme--text"
                 style={{
-                  fontSize: `${text.fontSize}px`,
-                  textTransform: "none" // Override forced uppercase
+                    fontSize: `${text.fontSize}px`,
+                    textTransform: "none", // Override forced uppercase
+                    whiteSpace: "nowrap"   // Prevents text from wrapping
                 }}
                 onMouseDown={handleMouseDown(index)}
                 onClick={() => handleTextClick(index)}
-              >
+                >
                 {text.content}
                 {/* Render the remove (cross) button only when editing this text */}
                 {editingTextIndex === index && (
-                  <button 
+                    <button 
                     className="remove-btn"
                     onClick={(e) => {
-                      e.stopPropagation();
-                      handleRemoveText(index);
+                        e.stopPropagation();
+                        handleRemoveText(index);
                     }}
-                  >
+                    >
                     ✕
-                  </button>
+                    </button>
                 )}
-              </h2>
+                </h2>
             </div>
           ))}
         </div>
