@@ -1,23 +1,40 @@
-import React from "react"
+import React from "react";
 
 export default function Header() {
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: "Meme Generator",
+                    text: "Check out this Meme Generator!",
+                    url: window.location.href,
+                });
+                console.log("Successfully shared!");
+            } catch (error) {
+                console.error("Error sharing:", error);
+            }
+        } else {
+            alert("Sharing is not supported on this browser.");
+        }
+    };
+
     return (
         <header className="header">
             <div className="header--content">
                 <div className="header--logo-section">
                     <img 
-                        src="/troll-face.png" 
+                        src="/meme.svg" 
                         className="header--image"
-                        alt="Troll Face"
+                        alt="Meme Pic"
                     />
                     <h2 className="header--title">Meme Generator</h2>
                 </div>
                 <nav className="header--nav">
-                    <a href="#" className="nav-link">Create</a>
-                    <a href="#" className="nav-link">Gallery</a>
-                    <a href="#" className="glass-button">Share</a>
+                    <button onClick={handleShare} className="glass-button">
+                        Share
+                    </button>
                 </nav>
             </div>
         </header>
-    )
+    );
 }

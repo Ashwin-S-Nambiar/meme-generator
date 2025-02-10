@@ -39,24 +39,26 @@ body {
 }
 
 main {
-    max-width: 1200px;
     margin: 0 auto;
     padding: clamp(1.5rem, 5vw, 3rem);
 }
 
 /* Header Styles */
 .header {
-    display: flex;
-    align-items: center;
-    height: 80px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 50;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
 }
+
 
 .header--content {
     display: flex;
@@ -99,32 +101,9 @@ main {
     gap: 2rem;
 }
 
-.nav-link {
-    color: var(--foreground);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background: linear-gradient(90deg, #fff, transparent);
-    transition: width 0.4s ease-in-out;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
 .glass-button {
     color: var(--foreground);
+    cursor: pointer;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -146,7 +125,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     margin: 0 auto;
-    margin-top: -1rem;
+    margin-top: 4rem;
     max-width: 800px;
     animation: fadeIn 0.5s ease;
     padding: 1rem;
@@ -175,7 +154,6 @@ main {
 
 .form--input:focus {
     outline: none;
-    border-color: var(--ring);
     box-shadow: 0 0 0 1px var(--ring);
 }
 
@@ -215,6 +193,52 @@ main {
 .form--button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.button-group {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.form--button {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1.5rem;
+}
+
+
+.cta-1 {
+  background-color: #0070f3;
+  color: white;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.cta-2 {
+  background-color: #ff8e3c;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.cta-3 {
+  background-color: #00c851;
+  color: white;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 /* Meme Styles */
@@ -448,18 +472,26 @@ main {
         gap: 2rem;
     }
     
-    .footer--bottom {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
     .form {
         padding: 1.5rem;
+        margin-top: 5rem;
+    }
+
+    .button-group {
+        gap: 0.75rem;
+    }
+  
+    .form--button {
+        flex: 1 1 45%;
+        padding: 0.75rem 1.25rem;
     }
 }
 
 @media (max-width: 480px) {
+    .form {
+      margin-top: 4.5rem;
+    }
+
     .header--title {
         font-size: 1.1rem;
     }
@@ -472,9 +504,14 @@ main {
         padding: 1rem;
     }
 
+    .button-group {
+        gap: 0.5rem;
+    }
+    
     .form--button {
-        min-width: 160px;
-        font-size: 0.85rem;
+        flex: 1 1 100%;
+        min-width: unset;
+        padding: 0.5rem 1rem;
     }
 }
 
