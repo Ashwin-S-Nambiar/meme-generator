@@ -252,11 +252,45 @@ main {
 
 .meme--container {
     position: relative;
+    isolation: isolate;
     background: var(--secondary);
     padding: 1rem;
     border-radius: calc(var(--radius) * 2);
     overflow: hidden;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading overlay */
+.meme--container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.meme--container.loading::before {
+    opacity: 1;
+}
+
+.meme--container.loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    pointer-events: none;
 }
 
 .meme--container:hover {
@@ -269,7 +303,23 @@ main {
     max-height: 70vh;
     object-fit: contain;
     border-radius: var(--radius);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    transform-origin: center center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loaded state animations */
+.meme--image.loading {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+
+.meme--image:not(.loading) {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .meme--text {
@@ -422,6 +472,16 @@ main {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Optional shimmer effect during loading */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
     }
 }
 
@@ -602,7 +662,6 @@ main {
 }
 
 /* Tooltip Styles */
-/* Base styles for elements with title attributes */
 [title] {
     position: relative;
 }
@@ -659,9 +718,3 @@ main {
     left: 80px;
     padding: 0.75rem;
 }
-
-/* Optional: Custom tooltip for specific elements */
-/* .footer--link[title]:before {
-    min-width: 120px;
-    text-align: center;
-} */

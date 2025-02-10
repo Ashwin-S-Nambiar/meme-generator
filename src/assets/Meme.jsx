@@ -31,9 +31,22 @@ export default function Meme() {
     
             const randomNumber = Math.floor(Math.random() * allMemes.length);
             const url = allMemes[randomNumber].url;
-            setMeme((prevMeme) => ({
+            
+            // Create a new image object to preload
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            
+            // Wait for the new image to load before updating state
+            await new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = url;
+            });
+    
+            // Only update the meme state after the new image is loaded
+            setMeme(prevMeme => ({
                 ...prevMeme,
-                randomImage: url,
+                randomImage: url
             }));
         } catch (error) {
             console.error("Failed to get meme image:", error);
@@ -202,13 +215,12 @@ export default function Meme() {
                 </div>
             </div>
             <div className="meme" ref={memeRef}>
-                <div className="meme--container">
+                <div className={`meme--container ${isLoading ? 'loading' : ''}`}>
                     <img
                         src={meme.randomImage}
-                        className="meme--image"
+                        className={`meme--image ${isLoading ? 'loading' : ''}`}
                         alt="Meme"
                         crossOrigin="anonymous" // Ensures CORS support
-                        onLoad={() => setIsLoading(false)}
                         onError={(e) => {
                             e.target.src = fallBackImg;
                             setIsLoading(false);
