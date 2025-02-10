@@ -20,12 +20,12 @@ export default function Footer() {
                             <h3 className="footer--heading">Links</h3>
                             <a title="Check out the repo" target="_blank" href="https://github.com/Ashwin-S-Nambiar/meme-generator" className="footer--link">GitHub</a>
                             <a title="Product inspiration" target="_blank" href="https://www.figma.com/design/1B11aOcKyCpYftO40SsESC/Meme-Generator-(Copy)?node-id=0-1&t=ppUK6YxdsXVeSKAw-1" className="footer--link">Figma</a>
-                            <a title="Contact me" target="_blank" href="mailto:ashwinnambiar12345@gmail.com" className="footer--link">Contact</a>
+                            <a title="Contact me" target="_blank" href="mailto:ashwinnambiar12345@gmail.com" className="footer--link">Contact Me</a>
                         </div>
                         <div className="footer--section">
                             <h3 className="footer--heading">Tech Stack</h3>
-                            <a title="Vite docs" target="_blank" href="https://vite.dev/" className="footer--link">Vite</a>
-                            <a title="React docs" target="_blank" href="https://react.dev/" className="footer--link">React</a>
+                            <a title="Vite docs" target="_blank" href="https://vite.dev/guide/" className="footer--link">Vite</a>
+                            <a title="React docs" target="_blank" href="https://react.dev/reference/react" className="footer--link">React</a>
                             <a title="Imgflip API docs" target="_blank" href="https://imgflip.com/api" className="footer--link">Imgflip API</a>
                         </div>
                     </div>

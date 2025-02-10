@@ -36,6 +36,7 @@ body {
     min-height: 100vh;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    user-select: none;
 }
 
 main {
@@ -599,3 +600,68 @@ main {
         border: 1.5px solid transparent;
     }
 }
+
+/* Tooltip Styles */
+/* Base styles for elements with title attributes */
+[title] {
+    position: relative;
+}
+
+/* Custom tooltip */
+[title]:before,
+[title]:after {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateY(10px);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Tooltip text */
+[title]:before {
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    content: attr(title);
+    font-size: 12px;
+    top: -5px;
+    padding: 8px 12px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 100;
+}
+
+/* Show tooltip on hover */
+[title]:hover:before,
+[title]:hover:after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Remove default title popup */
+[title]:hover {
+    cursor: pointer;
+}
+
+/* Optional: Disable tooltips on mobile */
+@media (max-width: 768px) {
+    [title]:before,
+    [title]:after {
+        display: none;
+    }
+}
+
+.glass-button[title]:before {
+    font-size: 14px;
+    top: -5px;
+    left: 80px;
+    padding: 0.75rem;
+}
+
+/* Optional: Custom tooltip for specific elements */
+/* .footer--link[title]:before {
+    min-width: 120px;
+    text-align: center;
+} */

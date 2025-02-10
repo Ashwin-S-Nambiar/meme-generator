@@ -30,7 +30,7 @@ export default function Header() {
                     <h2 className="header--title">Meme Generator</h2>
                 </div>
                 <nav className="header--nav">
-                    <button onClick={handleShare} className="glass-button">
+                    <button title="Share the Website" onClick={handleShare} className="glass-button">
                         Share
                     </button>
                 </nav>
