@@ -90,11 +90,17 @@ Contributions are welcome! Here's how you can help improve the Color Scheme Gene
 ### **Generate New Meme Template**
 ![MemeTemplate](./public/screenshots/NewTemplate.png)
 
-### **Share Meme**
-![ShareMeme](./public/screenshots/ShareMeme.png)
+### **Adding Text to Template**
+![MemeTemplate1](./public/screenshots/AddingText.png)
+
+### **Footer**
+![MemeTemplate1](./public/screenshots/Footer.png)
 
 ### **Downloaded Meme**
 ![DownloadMeme](./public/screenshots/DownloadedMeme.png)
+
+### **Share Meme**
+![ShareMeme](./public/screenshots/ShareMeme.png)
 
 
 </div>
