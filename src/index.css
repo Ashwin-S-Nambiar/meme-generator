@@ -390,7 +390,7 @@ main {
 
 .cta-3 {
   background-color: #00c851;
-  color: white;
+  color: black;
   font-weight: 600;
 
   &:hover {

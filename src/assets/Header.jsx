@@ -74,6 +74,7 @@ export default function Header() {
                     <div className="modal-grid-background" />
                     
                     <button 
+                        aria-label="close instructions model"
                         onClick={toggleModal}
                         className="modal-close"
                     >

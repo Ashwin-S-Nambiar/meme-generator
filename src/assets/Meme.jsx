@@ -230,6 +230,13 @@ export default function Meme() {
         </div>
         <div className="button-group">
           <button
+            className="form--button cta-2"
+            onClick={handleDownload}
+            disabled={isLoading}
+          >
+            Download Meme
+          </button>
+          <button
             className="form--button cta-1"
             onClick={getMemeImage}
             disabled={isLoading}
@@ -256,13 +263,6 @@ export default function Meme() {
                 </svg>
               </>
             )}
-          </button>
-          <button
-            className="form--button cta-2"
-            onClick={handleDownload}
-            disabled={isLoading}
-          >
-            Download Meme
           </button>
           <button
             className="form--button cta-3"
