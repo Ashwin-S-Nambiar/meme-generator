@@ -16,7 +16,7 @@ A fun and interactive meme generator that allows users to create their own memes
 ## 🎨 Features
 
 - 🖼 **Meme Template Selection** - Choose from a wide range of meme templates.
-- ✍ **Custom Text Input** - Add top and bottom text to personalize your meme.
+- ✍ **Custom Text Input** - Add text anywhere to personalize your meme.
 - ⚡ **Instant Meme Preview** - See real-time updates while editing.
 - 🌍 **API Integration** - Fetches templates dynamically from the Imgflip API.
 - 📱 **Responsive Design** - Optimized for mobile and desktop users.
@@ -84,26 +84,25 @@ Contributions are welcome! Here's how you can help improve the Color Scheme Gene
 <div align="center">
 
 ### **App Interface**
-![LandingPage](./public/screenshots/LandinPage.png)
+![LandingPage](./public/screenshots/MemeGen-1.png)
 
 ### **App Full Interface**
-![FullPage](./public/screenshots/LandingPageFull.png)
+![FullPage](./public/screenshots/LandingFullPage.png)
 
-### **Generate New Meme Template**
-![MemeTemplate](./public/screenshots/NewTemplate.png)
+### **Instructions**
+![Instructions](./public/screenshots/MemeGen-2.png)
 
 ### **Adding Text to Template**
-![MemeTemplate1](./public/screenshots/AddingText.png)
+![MemeTemplate1](./public/screenshots/MemeGen-3.png)
 
 ### **Footer**
-![MemeTemplate1](./public/screenshots/Footer.png)
+![MemeTemplate1](./public/screenshots/MemeGen-4.png)
 
 ### **Downloaded Meme**
-![DownloadMeme](./public/screenshots/DownloadedMeme.png)
+![DownloadMeme](./public/screenshots/MemeGen-6.png)
 
 ### **Share Meme**
-![ShareMeme](./public/screenshots/ShareMeme.png)
-
+![ShareMeme](./public/screenshots/MemeGen-5.png)
 
 </div>
 
