@@ -41,7 +41,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     user-select: none;
-    min-width: 375px;
+    min-width: 330px;
 }
 
 .modal-container.open ~ body {
@@ -52,6 +52,7 @@ body {
 main {
     margin: 0 auto;
     padding: clamp(1.5rem, 5vw, 3rem);
+    padding-inline: 2rem;
 }
 
 /* Header Styles */
@@ -1070,19 +1071,7 @@ main {
     }
 }
 
-@media (max-width: 375px) {
-    .header--title {
-        font-size: 0.9rem;
-    }
-
-    .glass-button {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.7rem;
-        border-radius: calc(var(--radius) - 4px);
-    }
-}
-
-@media (max-width: 391px) {
+@media (max-width: 410px) {
     .modal-inner {
         padding: 1rem;
     }
@@ -1093,6 +1082,56 @@ main {
     
     .instructions-list {
         gap: 0.75rem;
+    }
+
+    .text-cont {
+        gap: 10px;
+    }
+
+    .form {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .form--input {
+        flex: none !important;
+        width: 150px;
+    }
+
+    .form--button {
+        max-width: 200px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .plus-btn {
+        flex: none;
+        padding: 0.5rem;
+    }
+
+    .font-size-controls {
+        justify-self: center;
+        max-width: 200px;
+        gap: 0.5rem;
+        margin: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+    }    
+
+    .header--title {
+        font-size: 0.9rem;
+    }
+
+    .glass-button {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: calc(var(--radius) - 4px);
     }
 }
 
