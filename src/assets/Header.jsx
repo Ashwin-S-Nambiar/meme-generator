@@ -49,7 +49,7 @@ export default function Header() {
                         <button 
                             title="Check instructions"
                             onClick={toggleModal}
-                            className="glass-button"
+                            className="glass-button border-animate"
                         >
                             Instructions
                         </button>

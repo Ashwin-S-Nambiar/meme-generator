@@ -641,12 +641,23 @@ main {
     }
 }
 
-/* Glass Morphism Effect */
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+@keyframes borderGlow {
+    0% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+}
+
+.border-animate {
+    animation: borderGlow 3s infinite alternate ease-in-out;
 }
 
 /* Grid Background */
