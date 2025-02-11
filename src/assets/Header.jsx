@@ -110,7 +110,7 @@ export default function Header() {
                                                 </div> to move the text. <br /> On Mobile: use <div className="controls">
                                                                                                         <span>Touch</span>
                                                                                                         <span>Hold</span>
-                                                                                                    </div> for few milliseconds, then move it.
+                                                                                                    </div> and then move it.
                                 </p>
                             </div>
 
