@@ -20,7 +20,7 @@ export default function Footer() {
                             <h3 className="footer--heading">Links</h3>
                             <a title="Check out the repo" target="_blank" href="https://github.com/Ashwin-S-Nambiar/meme-generator" className="footer--link">GitHub</a>
                             <a title="Product inspiration" target="_blank" href="https://www.figma.com/design/1B11aOcKyCpYftO40SsESC/Meme-Generator-(Copy)?node-id=0-1&t=ppUK6YxdsXVeSKAw-1" className="footer--link">Figma</a>
-                            <a title="Contact me" target="_blank" href="mailto:ashwinnambiar12345@gmail.com" className="footer--link">Contact Me</a>
+                            <a title="Contact via email" target="_blank" href="mailto:ashwinnambiar12345@gmail.com" className="footer--link">Contact Me</a>
                         </div>
                         <div className="footer--section">
                             <h3 className="footer--heading">Tech Stack</h3>
@@ -32,7 +32,7 @@ export default function Footer() {
                 </div>
                 <div className="footer--bottom">
                     <p className="footer--copyright">
-                        © {currentYear} <a className="footer--link link-1" href="https://ashwin-s-nambiar.is-a.dev/">Ashwin S Nambiar</a>. All rights reserved.
+                        © {currentYear} <a className="footer--link link-1" target="_blank" href="https://ashwin-s-nambiar.is-a.dev/">Ashwin S Nambiar</a>. All rights reserved.
                     </p>
                     <div className="footer--social">
                         <a href="https://github.com/ashwin-s-nambiar" target="_blank" className="footer--social-link" aria-label="GitHub">

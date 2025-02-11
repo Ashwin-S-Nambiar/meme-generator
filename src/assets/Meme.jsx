@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { X, CircleCheck } from "lucide-react";
+import { X, CircleCheck, PlusCircle, Minus, Plus } from "lucide-react";
 import fallBackImg from "/fallback-meme.jpg";
 
 export default function Meme() {
@@ -14,7 +14,9 @@ export default function Meme() {
   const [isDragging, setIsDragging] = useState(false);
   const [draggedTextIndex, setDraggedTextIndex] = useState(null);
   const memeRef = useRef(null);
+  const touchTimeout = useRef(null);
 
+  // Previous fetch and image handling functions remain the same...
   useEffect(() => {
     async function fetchMemes() {
       try {
@@ -44,7 +46,7 @@ export default function Meme() {
       setMeme((prevMeme) => ({
         ...prevMeme,
         randomImage: url,
-        texts: [] // Reset texts when changing image
+        texts: []
       }));
     } catch (error) {
       console.error("Failed to get meme image:", error);
@@ -56,10 +58,8 @@ export default function Meme() {
   const handleAddText = () => {
     if (!currentText.trim()) return;
     if (editingTextIndex !== null) {
-      // When editing, simply exit editing mode.
       setEditingTextIndex(null);
     } else {
-      // Add a new text to the meme.
       setMeme((prevMeme) => ({
         ...prevMeme,
         texts: [
@@ -72,14 +72,12 @@ export default function Meme() {
         ]
       }));
     }
-    // Clear the input field after adding or confirming an edit.
     setCurrentText("");
   };
 
   const handleTextChange = (e) => {
     const value = e.target.value;
     setCurrentText(value);
-    // If editing an existing text, update its content live.
     if (editingTextIndex !== null) {
       setMeme((prevMeme) => {
         const updatedTexts = [...prevMeme.texts];
@@ -92,7 +90,23 @@ export default function Meme() {
     }
   };
 
-  // Dragging logic for repositioning text on the meme image.
+  const handleFontSizeChange = (increment) => {
+    if (editingTextIndex === null) return;
+    
+    setMeme((prevMeme) => {
+      const updatedTexts = [...prevMeme.texts];
+      const currentSize = updatedTexts[editingTextIndex].fontSize;
+      const newSize = Math.max(8, Math.min(72, currentSize + increment));
+      
+      updatedTexts[editingTextIndex] = {
+        ...updatedTexts[editingTextIndex],
+        fontSize: newSize
+      };
+      return { ...prevMeme, texts: updatedTexts };
+    });
+  };
+
+  // Mouse event handlers
   const handleMouseDown = (index) => (e) => {
     e.preventDefault();
     setIsDragging(true);
@@ -119,7 +133,47 @@ export default function Meme() {
     setDraggedTextIndex(null);
   };
 
-  // When clicking a text, load its content into the input field for editing.
+  // Touch event handlers - simplified to only handle dragging
+  const handleTouchStart = (index) => (e) => {
+    e.preventDefault();
+    touchTimeout.current = setTimeout(() => {
+      setIsDragging(true);
+      setDraggedTextIndex(index);
+    }, 250);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchTimeout.current) {
+      clearTimeout(touchTimeout.current);
+    }
+
+    if (!isDragging) return;
+
+    if (isDragging && draggedTextIndex !== null && e.touches.length === 1) {
+      const rect = memeRef.current.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = ((touch.clientX - rect.left) / rect.width) * 100;
+      const y = ((touch.clientY - rect.top) / rect.height) * 100;
+      
+      setMeme((prevMeme) => {
+        const updatedTexts = [...prevMeme.texts];
+        updatedTexts[draggedTextIndex] = {
+          ...updatedTexts[draggedTextIndex],
+          position: { x, y }
+        };
+        return { ...prevMeme, texts: updatedTexts };
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (touchTimeout.current) {
+      clearTimeout(touchTimeout.current);
+    }
+    setIsDragging(false);
+    setDraggedTextIndex(null);
+  };
+
   const handleTextClick = (index) => {
     setEditingTextIndex(index);
     setCurrentText(meme.texts[index].content);
@@ -136,6 +190,7 @@ export default function Meme() {
     }
   };
 
+  // Capture and share functions remain the same...
   const captureMeme = async () => {
     if (!meme.randomImage) return null;
     return new Promise((resolve) => {
@@ -148,7 +203,6 @@ export default function Meme() {
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        // Draw each text (overriding any forced uppercase)
         meme.texts.forEach((text) => {
           ctx.font = `bold ${Math.floor(canvas.width * (text.fontSize / 500))}px Impact`;
           ctx.fillStyle = "white";
@@ -157,7 +211,6 @@ export default function Meme() {
           ctx.lineWidth = Math.floor(canvas.width * (text.fontSize / 5000));
           const x = canvas.width * (text.position.x / 100);
           const y = canvas.height * (text.position.y / 100);
-          ctx.lineWidth = Math.floor(canvas.width * (text.fontSize / 5000));
           ctx.strokeText(text.content, x, y);
           ctx.fillText(text.content, x, y);
         });
@@ -207,6 +260,9 @@ export default function Meme() {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
     >
       <div className="form glass">
         <div className="text-cont">
@@ -218,16 +274,38 @@ export default function Meme() {
             value={currentText}
             onChange={handleTextChange}
           />
-          {/* Plus/Confirm button */}
           <button 
             title="Add text to meme"
             className="plus-btn"
             onClick={handleAddText}
             disabled={currentText.trim() === ""}
           >
-            {currentText.trim() === "" ? <X size={20} /> : editingTextIndex !== null ? "" : <CircleCheck size={20} /> }
+            {currentText.trim() === "" ? <X size={20} /> : editingTextIndex !== null ? <PlusCircle size={20} /> : <CircleCheck size={20} />}
           </button>
         </div>
+        
+        {editingTextIndex !== null && (
+          <div className="font-size-controls">
+            <button
+              className="font-control-btn"
+              onClick={() => handleFontSizeChange(-2)}
+              title="Decrease font size"
+            >
+              <Minus size={20} />
+            </button>
+            <span className="font-size-display">
+              {meme.texts[editingTextIndex].fontSize}px
+            </span>
+            <button
+              className="font-control-btn"
+              onClick={() => handleFontSizeChange(2)}
+              title="Increase font size"
+            >
+              <Plus size={20} />
+            </button>
+          </div>
+        )}
+
         <div className="button-group">
           <button
             className="form--button cta-2"
@@ -245,7 +323,7 @@ export default function Meme() {
               <span className="loading">Loading...</span>
             ) : (
               <>
-                 New Meme Template
+                New Meme Template
                 <svg
                   width="15"
                   height="15"
@@ -296,51 +374,32 @@ export default function Meme() {
                 left: `${text.position.x}%`, 
                 top: `${text.position.y}%`,
               }}
-              // Handle Shift + Scrollwheel to adjust font size
-              onWheel={(e) => {
-                if (e.shiftKey) {
-                  e.preventDefault();
-                  setMeme((prevMeme) => {
-                    const updatedTexts = [...prevMeme.texts];
-                    let newFontSize = updatedTexts[index].fontSize;
-                    if (e.deltaY < 0) {
-                      newFontSize += 2; // Increase font size
-                    } else if (e.deltaY > 0) {
-                      newFontSize = Math.max(8, newFontSize - 2); // Decrease font size, not below 8px
-                    }
-                    updatedTexts[index] = {
-                      ...updatedTexts[index],
-                      fontSize: newFontSize
-                    };
-                    return { ...prevMeme, texts: updatedTexts };
-                  });
-                }
-              }}
+              onTouchStart={handleTouchStart(index)}
             >
-                <h2 
+              <h2 
                 className="meme--text"
                 style={{
-                    fontSize: `${text.fontSize}px`,
-                    textTransform: "none", // Override forced uppercase
-                    whiteSpace: "nowrap"   // Prevents text from wrapping
+                  fontSize: `${text.fontSize}px`,
+                  textTransform: "none",
+                  whiteSpace: "nowrap",
+                  touchAction: "none"
                 }}
                 onMouseDown={handleMouseDown(index)}
                 onClick={() => handleTextClick(index)}
-                >
+              >
                 {text.content}
-                {/* Render the remove (cross) button only when editing this text */}
                 {editingTextIndex === index && (
-                    <button 
-                    className="remove-btn"
+                  <button 
+                    className="remove-btn control-btn"
                     onClick={(e) => {
-                        e.stopPropagation();
-                        handleRemoveText(index);
+                      e.stopPropagation();
+                      handleRemoveText(index);
                     }}
-                    >
-                    ✕
-                    </button>
+                  >
+                    <X size={18} />
+                  </button>
                 )}
-                </h2>
+              </h2>
             </div>
           ))}
         </div>
