@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { X, CircleCheck } from "lucide-react";
 import fallBackImg from "/fallback-meme.jpg";
 
 export default function Meme() {
@@ -224,7 +225,7 @@ export default function Meme() {
             onClick={handleAddText}
             disabled={currentText.trim() === ""}
           >
-            {currentText.trim() === "" ? "⃠" : editingTextIndex !== null ? "✓" : "+"}
+            {currentText.trim() === "" ? <X size={20} /> : editingTextIndex !== null ? "" : <CircleCheck size={20} /> }
           </button>
         </div>
         <div className="button-group">
@@ -237,7 +238,7 @@ export default function Meme() {
               <span className="loading">Loading...</span>
             ) : (
               <>
-                Get a new meme image
+                 New Meme Template
                 <svg
                   width="15"
                   height="15"

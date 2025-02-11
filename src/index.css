@@ -30,6 +30,7 @@
 }
 
 body {
+    overflow-y: scroll;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: var(--background);
     color: var(--foreground);
@@ -38,6 +39,11 @@ body {
     -webkit-font-smoothing: antialiased;
     user-select: none;
     min-width: 330px;
+}
+
+.modal-container.open ~ body {
+    height: 100vh;
+    overflow: hidden;
 }
 
 main {
@@ -60,7 +66,6 @@ main {
   right: 0;
   z-index: 50;
 }
-
 
 .header--content {
     display: flex;
@@ -119,6 +124,157 @@ main {
 
 .glass-button:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+/* Modal Container */
+.modal-container {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.modal-container.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    will-change: opacity;
+    transition:
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-container.open .modal-backdrop {
+    opacity: 1;
+    transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 32rem;
+    margin: 1rem;
+    transform: scale(0.95) translateY(1rem);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-container.open .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Grid Background */
+.modal-grid-background {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    opacity: 0.2;
+    background-image: linear-gradient(to right, #1d1d1d 1px, transparent 1px),
+                      linear-gradient(to bottom, #1d1d1d 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    z-index: 10;
+    background: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Modal Inner Content */
+.modal-inner {
+    position: relative;
+    padding: 2rem;
+    color: white;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Instructions List */
+.instructions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.instruction-number {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.instruction-number-1 {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+.instruction-number-2 {
+    background: rgba(139, 92, 246, 0.2);
+    color: #a78bfa;
+}
+
+.instruction-number-3 {
+    background: rgba(236, 72, 153, 0.2);
+    color: #f472b6;
+}
+
+.instruction-number-4 {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+.instruction-text {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
 }
 
 /* Form Styles */
@@ -554,6 +710,20 @@ main {
     }
 }
 
+@media (max-width: 640px) {
+    .modal-inner {
+        padding: 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.25rem;
+    }
+    
+    .instructions-list {
+        gap: 1rem;
+    }
+}
+
 @media (max-width: 480px) {
     .form {
       margin-top: 4.5rem;
@@ -714,15 +884,15 @@ main {
 
 .glass-button[title]:before {
     font-size: 14px;
-    top: -5px;
-    left: 80px;
+    top: -6px;
+    left: -15px;
     padding: 0.75rem;
 }
 
 .plus-btn[title]:before {
     font-size: 14px;
     top: -1px;
-    left: 50px;
+    left: 58px;
     padding: 0.75rem;
 }
 
@@ -744,7 +914,7 @@ main {
 }
 
 .plus-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1rem;
     background: var(--secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -786,4 +956,44 @@ main {
 .meme-text-wrapper {
     position: absolute;
     cursor: move;
+}
+
+.controls {
+    display: inline-flex;
+    margin-right: 5px;
+    align-items: center;
+    height: 32px;
+    padding: 0 8px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    color: #a1a1aa;
+    background-color: rgba(24, 24, 27, 0.8);
+    border: 1px solid rgba(63, 63, 70, 0.5);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.controls:hover {
+    background-color: rgba(39, 39, 42, 0.8);
+    border-color: rgba(82, 82, 91, 0.7);
+}
+
+/* Individual key styling */
+.controls span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    padding: 0 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #d4d4d8;
+}
+
+/* Plus sign styling */
+.controls span + span::before {
+    content: "+";
+    margin: 0 4px;
+    color: #71717a;
 }
