@@ -149,7 +149,7 @@ main {
 .modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     opacity: 0;
     will-change: opacity;
     transition:
@@ -166,6 +166,7 @@ main {
 /* Modal Content */
 .modal-content {
     position: relative;
+    top: -180px;
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
@@ -765,6 +766,10 @@ main {
         min-width: unset;
         padding: 0.5rem 1rem;
     }
+
+    .modal-content {
+        top: -170px;
+    }
 }
 
 @media (max-width: 375px) {
@@ -903,10 +908,14 @@ main {
 }
 
 /* Optional: Disable tooltips on mobile */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 400px){
     [title]:before,
     [title]:after {
         display: none;
+    }
+
+    .modal-content {
+        top: -200px;
     }
 }
 
@@ -993,6 +1002,7 @@ main {
 .controls {
     display: inline-flex;
     margin-right: 5px;
+    margin-bottom: 5px;
     align-items: center;
     height: 32px;
     padding: 0 8px;

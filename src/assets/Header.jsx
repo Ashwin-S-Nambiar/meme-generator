@@ -104,18 +104,20 @@ export default function Header() {
                             <div className="instruction-item">
                                 <div className="instruction-number instruction-number-3">3</div>
                                 <p className="instruction-text">
-                                    On PCs: Drag the custom text with your mouse to change it's placement, On mobile: Touch and hold to move it.
+                                    On PCs: use <div className="controls">
+                                                    <span>Left Mouse Click</span>
+                                                    <span>Drag</span>
+                                                </div> to move the text. <br /> On Mobile: use <div className="controls">
+                                                                                                        <span>Touch</span>
+                                                                                                        <span>Hold</span>
+                                                                                                    </div> for few milliseconds, then move it.
                                 </p>
                             </div>
 
                             <div className="instruction-item">
                                 <div className="instruction-number instruction-number-4">4</div>
                                 <p className="instruction-text">
-                                    On PCs: <div className="controls">
-                                                <span>Shift</span>
-                                                <span>Scrl Up/Down</span>
-                                            </div> 
-                                     to adjust font size, On mobile: Pinch in/out to adjust the font size of the text.
+                                    To adjust font size of the text inside the meme click on the meme text to use the font-size controls. 
                                 </p>
                             </div>
 
