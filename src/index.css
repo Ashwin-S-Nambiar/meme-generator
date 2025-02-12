@@ -725,7 +725,7 @@ main {
 
 .plus-btn[title]:before {
     font-size: 14px;
-    top: -1px;
+    top: 2px;
     left: 58px;
     padding: 0.75rem;
 }
