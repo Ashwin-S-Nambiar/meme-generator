@@ -56,7 +56,7 @@ A fun and interactive meme generator that allows users to create their own memes
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can help improve the Color Scheme Generator:
+Contributions are welcome! Here's how you can help improve the Meme Generator:
 
 1. Fork the repository
 2. Create a feature branch:
