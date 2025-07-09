@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { X, CircleCheck, PlusCircle, Minus, Plus } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { X, CircleCheck, PlusCircle, Minus, Plus, Download, RefreshCw, Share2 } from "lucide-react";
 import fallBackImg from "/fallback-meme.jpg";
 
 export default function Meme() {
@@ -16,7 +16,6 @@ export default function Meme() {
   const memeRef = useRef(null);
   const touchTimeout = useRef(null);
 
-  // Previous fetch and image handling functions remain the same...
   useEffect(() => {
     async function fetchMemes() {
       try {
@@ -133,7 +132,7 @@ export default function Meme() {
     setDraggedTextIndex(null);
   };
 
-  // Touch event handlers - simplified to only handle dragging
+  // Touch event handlers
   const handleTouchStart = (index) => (e) => {
     e.preventDefault();
     touchTimeout.current = setTimeout(() => {
@@ -190,7 +189,7 @@ export default function Meme() {
     }
   };
 
-  // Capture and share functions remain the same...
+  // Capture and share functions
   const captureMeme = async () => {
     if (!meme.randomImage) return null;
     return new Promise((resolve) => {
@@ -312,7 +311,8 @@ export default function Meme() {
             onClick={handleDownload}
             disabled={isLoading}
           >
-            Download Meme
+            <Download size={18} />
+            <span className="button-text">Download Meme</span>
           </button>
           <button
             className="form--button cta-1"
@@ -323,22 +323,8 @@ export default function Meme() {
               <span className="loading">Loading...</span>
             ) : (
               <>
-                New Meme Template
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.5 1.5L7.5 13.5M7.5 13.5L13.5 7.5M7.5 13.5L1.5 7.5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <RefreshCw size={18} />
+                <span className="button-text">New Meme Template</span>
               </>
             )}
           </button>
@@ -347,7 +333,8 @@ export default function Meme() {
             onClick={handleShare}
             disabled={isLoading}
           >
-            Share Meme
+            <Share2 size={18} />
+            <span className="button-text">Share Meme</span>
           </button>
         </div>
       </div>
