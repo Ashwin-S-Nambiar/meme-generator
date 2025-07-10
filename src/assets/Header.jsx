@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
+import ApiStatus from "./ApiStatus.jsx";
 
 export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +47,7 @@ export default function Header() {
                         <h2 className="header--title">Meme Generator</h2>
                     </div>
                     <nav className="header--nav">
+                        <ApiStatus />
                         <button 
                             title="Check instructions"
                             onClick={toggleModal}
