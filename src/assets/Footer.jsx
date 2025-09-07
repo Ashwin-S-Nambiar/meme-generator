@@ -30,7 +30,7 @@ export default function Footer() {
                 </div>
                 <div className="footer--bottom">
                     <p className="footer--copyright">
-                        © {currentYear} <a className="footer--link link-1" target="_blank" href="https://ashwin-s-nambiar.is-a.dev/">Ashwin S Nambiar</a>. All rights reserved.
+                        © 2024 - {currentYear} <a className="footer--link link-1" target="_blank" href="https://ashwin.co.in">Ashwin S Nambiar</a>. All rights reserved.
                     </p>
                     <div className="footer--social">
                         <a href="https://github.com/ashwin-s-nambiar" target="_blank" className="footer--social-link" aria-label="GitHub">
