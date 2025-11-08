@@ -1,4 +1,4 @@
-# Meme Generator 😁
+# Meme Generator
 
 <div align="center">
 
@@ -13,17 +13,17 @@ A fun and interactive meme generator that allows users to create their own memes
 
 </div>
 
-## 🎨 Features
+## Features
 
-- 🖼 **Meme Template Selection** - Choose from a wide range of meme templates.
-- ✍ **Custom Text Input** - Add text anywhere to personalize your meme.
-- ⚡ **Instant Meme Preview** - See real-time updates while editing.
-- 🌍 **API Integration** - Fetches templates dynamically from the Imgflip API.
-- 📱 **Responsive Design** - Optimized for mobile and desktop users.
-- 📤 **Share Memes** - Share your generated meme with a single click via social media or messaging platforms.
-- 💾 **Download Memes** - Download the generated meme directly to your device.
+- **Meme Template Selection** - Choose from a wide range of meme templates.
+- **Custom Text Input** - Add text anywhere to personalize your meme.
+- **Instant Meme Preview** - See real-time updates while editing.
+- **API Integration** - Fetches templates dynamically from the Imgflip API.
+- **Responsive Design** - Optimized for mobile and desktop users.
+- **Share Memes** - Share your generated meme with a single click via social media or messaging platforms.
+- **Download Memes** - Download the generated meme directly to your device.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **[React](https://reactjs.org/)** - UI component development
@@ -35,7 +35,7 @@ A fun and interactive meme generator that allows users to create their own memes
 ### API
 - **[Imgflip API](https://imgflip.com/api)** - Get the meme templates
 
-## 🚀 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -54,7 +54,7 @@ A fun and interactive meme generator that allows users to create their own memes
    ```
    **The application will be accessible at `http://localhost:5173`.**
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help improve the Meme Generator:
 
@@ -79,7 +79,7 @@ Contributions are welcome! Here's how you can help improve the Meme Generator:
 
 5. Open a Pull Request
 
-## 📸 Screenshots
+## Screenshots
 
 <div align="center">
 
@@ -106,7 +106,7 @@ Contributions are welcome! Here's how you can help improve the Meme Generator:
 
 </div>
 
-## 🌍 Live
+## Live
 
 <div align="center">
 
@@ -114,7 +114,7 @@ Contributions are welcome! Here's how you can help improve the Meme Generator:
 
 </div>
 
-## 👤 Author
+## Author
 
 ### Ashwin S Nambiar
 - Portfolio: [ashwin.co.in](https://ashwin.co.in)
