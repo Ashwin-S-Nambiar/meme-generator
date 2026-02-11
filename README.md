@@ -9,7 +9,7 @@
 
 A fun and interactive meme generator that allows users to create their own memes by selecting templates, adding custom text and share the memes made.
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Contributing](#-contributing) • [Screenshots](#-screenshots) • [Live](#-live) • [Author](#-author)
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Contributing](#-contributing) • [Screenshots](#-screenshots)
 
 </div>
 
