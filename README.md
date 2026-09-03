@@ -110,7 +110,7 @@ Contributions are welcome! Here's how you can help improve the Meme Generator:
 
 <div align="center">
 
-[![Visit](https://img.shields.io/badge/Visit_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://meme-generator.ashwin.co.in/)
+[![Visit](https://img.shields.io/badge/Visit_Site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://memes.ashwin.co.in/)
 
 </div>
 
